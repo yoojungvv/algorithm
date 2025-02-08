@@ -16,7 +16,7 @@ Algorithm-Study/
 │   ├── Gold/
 │── JungOl/       # 정올 문제 풀이
 │── SWEA/         # SWEA 문제 풀이
-│── README.md     # 리포지토리 소개 문서
+│── README.md     # 레포지토리 소개 문서
 └── .gitignore    # Git 설정 파일
 ```
 
@@ -28,7 +28,8 @@ Algorithm-Study/
    - "feat: BOJ_2810_컵홀더"
    - "fix: SWEA_1984_중간 평균값 구하기"
 2. **작성 방식**
-   - 풀이 과정 설명
+   - 풀이
+   - 주석
    - 회고
 
 ---
