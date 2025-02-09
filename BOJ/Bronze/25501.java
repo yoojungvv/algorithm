@@ -4,15 +4,15 @@ public class Main {
 
     public static int recursionCnt; 
 
+    public static int isPalindrome(String s) {
+        return recursion(s, 0, s.length()-1);
+    }
+
     public static int recursion(String s, int l, int r) {
         recursionCnt++;
         if(l >= r) return 1; //ABBA
         else if(s.charAt(l) != s.charAt(r)) return 0; //ABC
         else return recursion(s, l+1, r-1);
-    }
-
-    public static int isPalindrome(String s) {
-        return recursion(s, 0, s.length()-1);
     }
 
     public static void main(String[] args) {
