@@ -1,9 +1,8 @@
-import java.io.*;
 import java.util.*;
 
 public class Main {
 
-    public static int recursionCnt = 0; 
+    public static int recursionCnt; 
 
     public static int recursion(String s, int l, int r) {
         recursionCnt++;
@@ -21,13 +20,16 @@ public class Main {
         int T = Integer.parseInt(sc.nextLine());
 
         for(int i=0; i<T; i++) {
+            recursionCnt = 0;
             String s = sc.nextLine();
             System.out.print(isPalindrome(s)+" ");
             System.out.println(recursionCnt);
+            System.out.flush(); // 출력 순서가 꼬여서 마지막 입력값보다 4개 출력이 먼저 나오는 것을 처리
         }
+
+        sc.close();
                
     }
-    
 
 }
 
