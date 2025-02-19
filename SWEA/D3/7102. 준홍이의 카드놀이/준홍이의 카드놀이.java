@@ -1,21 +1,23 @@
-
-import java.util.*;
+import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int T = Integer.parseInt(sc.nextLine());
+        int T = sc.nextInt();
         int testCase = 1;
         while(testCase<=T) {
-            String[] input = sc.nextLine().split(" ");
-            int N = Integer.parseInt(input[0]);
-            int M = Integer.parseInt(input[1]);
+            int N = sc.nextInt();
+            int M = sc.nextInt();
 
             System.out.print("#"+testCase);
-            for(int i=Math.min(N+1,M+1); i<=Math.max(N+1, M+1); i++) {
-                System.out.print(" "+i);
+            if(M<=N) {
+                int temp = M;
+                M = N;
+                N = temp;
             }
+            for(int i=N+1; i<=M+1; i++) System.out.print(" "+i);
             System.out.println();
+
             testCase++;
         }
     }
