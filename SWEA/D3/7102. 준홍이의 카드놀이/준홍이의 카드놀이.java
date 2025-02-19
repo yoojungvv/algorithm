@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public class Solution {
@@ -9,26 +10,13 @@ public class Solution {
             String[] input = sc.nextLine().split(" ");
             int N = Integer.parseInt(input[0]);
             int M = Integer.parseInt(input[1]);
-            int[] sums = new int[N*M];
-            for(int i=1; i<=N; i++) {
-                for(int j=1; j<=M; j++) {
-                    sums[i+j]++;
-                }
-            }
-            int[] sumsFreq = Arrays.copyOf(sums, sums.length);
-            Arrays.sort(sumsFreq);
 
-            StringBuilder sb = new StringBuilder();
-            sb.append("#"+testCase);
-
-            int maxFreq = sumsFreq[sumsFreq.length-1];
-            for(int i=0; i<sums.length; i++) {
-                if(sums[i]==maxFreq) {
-                    sb.append(" ").append(i);
-                }
+            System.out.print("#"+testCase);
+            for(int i=Math.min(N+1,M+1); i<=Math.max(N+1, M+1); i++) {
+                System.out.print(" "+i);
             }
-            System.out.println(sb);
-        testCase++;
-         }
+            System.out.println();
+            testCase++;
+        }
     }
 }
