@@ -1,28 +1,38 @@
+import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        List<List<String>> words = new ArrayList<>(51);
-        int N = Integer.parseInt(sc.nextLine());
-
-        for(int i=0; i<51; i++) {
-            words.add(i, new ArrayList<>());
-        }
+        Set<String> wordSet = new HashSet<>();
+        int N = Integer.parseInt(br.readLine());
 
         for(int i=0; i<N; i++) {
-            String input =  sc.nextLine();
-            int len = input.length();
-            if(!words.get(len).contains(input)) words.get(len).add(input);
+            wordSet.add(br.readLine());
         }
 
-        for(int i=1; i<51; i++) {
-            Collections.sort(words.get(i));
-            for(String word : words.get(i)) {
-                System.out.println(word);
+        List<String> words = new ArrayList<>(wordSet);
+
+        words.sort(new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                if(s1.length() == s2.length()) {
+                    return s1.compareTo(s2);
+                } else {
+                    return Integer.compare(s1.length(), s2.length());
+                }
             }
+        });
+
+
+        StringBuilder sb = new StringBuilder();
+        for(String word : words) {
+            sb.append(word).append("\n");
         }
-        
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 }
